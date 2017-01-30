@@ -33,6 +33,7 @@
 			IPS:Number = 0,
 			IPSMod:Number = 1,
 			IPCClickMod:Number = 1,
+			IPRaibu:Number = 1,
 			BuyMod:Number = 1,
 			BuyFreeze:Number = 0,
 			timer:int = 0,
@@ -139,6 +140,8 @@
 			
 			add(saveButton);
 			add(webButton);
+			
+			//this.imoutos = 9999999999999999;
 			
 			//set starting items and items array
 			headItemsArray = Assets.MapHead();
@@ -315,11 +318,36 @@
 				return;
 			}
 			if(buttonReleased == true){
-				log.log("Click: Imouto power level + " + (1 * this.IPCClickMod).toFixed(2) + ")");
 				clickCount += 1;
 				clickhand.moveUp();
-				this.imoutos += (1 * this.IPCClickMod);
-				checkUpgrades();
+				if(IPRaibu != 1){
+					if(timer >= 28 || timer <= 2){
+						log.log("Perfect!: Imouto power level + " + ((this.IPS * this.IPSMod) * this.IPRaibu).toFixed(2) + ")");
+						this.imoutos += (this.IPS * this.IPSMod) * this.IPRaibu;
+					}
+					else if(timer >= 26 || timer <= 4){
+						log.log("Great!: Imouto power level + " + ((this.IPS * this.IPSMod) * this.IPRaibu / 2).toFixed(2) + ")");
+						this.imoutos += (this.IPS * this.IPSMod) * this.IPRaibu / 2;
+					}
+					else if(timer >= 24 || timer <= 6){
+						log.log("Good!: Imouto power level + " + ((this.IPS * this.IPSMod) * this.IPRaibu / 3).toFixed(2) + ")");
+						this.imoutos += (this.IPS * this.IPSMod) * this.IPRaibu / 3;
+					}
+					else if(timer >= 20 || timer <= 10){
+						log.log("Bad!: Imouto power level - " + ((this.IPS * this.IPSMod) * this.IPRaibu / 3).toFixed(2) + ")");
+						this.imoutos -= (this.IPS * this.IPSMod) * this.IPRaibu / 3;
+					}
+					else{
+						log.log("Miss!: Imouto power level - " + ((this.IPS * this.IPSMod) * this.IPRaibu / 2).toFixed(2) + ")");
+						this.imoutos -= (this.IPS * this.IPSMod) * this.IPRaibu / 2;
+					}
+					checkUpgrades();
+				}
+				else{
+					log.log("Click: Imouto power level + " + (1 * this.IPCClickMod).toFixed(2) + ")");
+					this.imoutos += (1 * this.IPCClickMod);
+					checkUpgrades();
+				}
 			} else {
 				clickhand.moveDown();
 			}
@@ -494,6 +522,7 @@
 			IPSMod = 1;
 			IPCClickMod = 1;
 			BuyMod = 1;
+			IPRaibu = 1;
 			clickCountMultiplier = 0;
 			if(lastUsedHead == 0 && lastUsedEyes == Assets.maxheads && lastUsedBody == 0){
 				comboText.changeCombo("The Beginner", "You get nothing!");
@@ -515,7 +544,7 @@
 				comboText.changeCombo("A Loli Vampire", "Vampiric drain! Drain 200*IP/s; Clicking gives 100*IP/s: " + Math.floor(IPS*100));
 				IPCClickMod = IPS * 100;
 				IPSMod = -200;
-			} else if (lastUsedHead == 11 && lastUsedEyes == Assets.maxheads + 11 && lastUsedBody == 8){
+			} else if (lastUsedHead == 11 && lastUsedEyes == Assets.maxheads + 17 && lastUsedBody == 8){
 				comboText.changeCombo("/AGDG/ Set", "Clicking gives IP/s * 4: " + Math.floor(IPS * IPSMod)*4 + "; IP/s is 0.");
 				IPCClickMod = (IPS * IPSMod) * 4;
 				IPSMod = 0;
@@ -548,11 +577,34 @@
 				IPCClickMod = (IPS * 2);
 				IPSMod = 2;
 				BuyMod = 0.5;
-			} else if (lastUsedBody == 13){
+			} else if (lastUsedHead == 14 && lastUsedBody == 13){
+				comboText.changeCombo("A Sony Property", "It has no game. Clicking gives 0 IP; Gain 400x IP/s.");
+				IPSMod = 400;
+				IPCClickMod = 0;
+			} else if (lastUsedHead == 19 && lastUsedEyes == Assets.maxheads + 11 && lastUsedBody == 14){
+				comboText.changeCombo("HONK", "If clicked at the moment of IP/s acquisition, gain up to 30500x IP/s. Otherwise, lose that amount.");
+				IPRaibu = 30500;
+			} else if (lastUsedHead == 20 && lastUsedEyes == Assets.maxheads + 12 && lastUsedBody == 14){
+				comboText.changeCombo("WASHI WASHI", "If clicked at the moment of IP/s acquisition, gain up to 32300x IP/s. Otherwise, lose that amount.");
+				IPRaibu = 32300;
+			} else if (lastUsedHead == 21 && lastUsedEyes == Assets.maxheads + 13 && lastUsedBody == 14){
+				comboText.changeCombo("Santa's Gift", "If clicked at the moment of IP/s acquisition, gain up to 37200x IP/s. Otherwise, lose that amount.");
+				IPRaibu = 37200;
+			} else if (lastUsedHead == 22 && lastUsedEyes == Assets.maxheads + 14 && lastUsedBody == 14){
+				comboText.changeCombo("Avian", "If clicked at the moment of IP/s acquisition, gain up to 32700x IP/s. Otherwise, lose that amount.");
+				IPRaibu = 32700;
+			} else if (lastUsedHead == 23 && lastUsedEyes == Assets.maxheads + 15 && lastUsedBody == 14){
+				comboText.changeCombo("Boy", "If clicked at the moment of IP/s acquisition, gain up to 31100x IP/s. Otherwise, lose that amount.");
+				IPRaibu = 31100;
+			} else if (lastUsedHead == 24 && lastUsedEyes == Assets.maxheads + 16 && lastUsedBody == 15){
+				comboText.changeCombo("Meow!", "Time to relax! Gain nothing but clicking but gain 4321x more IP/s.");
+				IPCClickMod = 0;
+				IPSMod = 4321;		
+			} else if (lastUsedBody == 16){
 				comboText.changeCombo("Oh", "This could be safe, guys");
 				IPCClickMod = (IPS * 50);
 				IPSMod = 50;			
-			} else if (lastUsedBody == 14){
+			} else if (lastUsedBody == 17){
 				comboText.changeCombo("Oh god", "This can't be safe, guys");
 				IPCClickMod = (IPS * 500);
 				IPSMod = 500;				

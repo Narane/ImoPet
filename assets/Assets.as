@@ -60,7 +60,7 @@
 		[Embed(source = "../assets/charhitbox.png")] public static const HITBOX:Class;
 		public static const hitboxx:int = 40;
 		public static const hitboxy:int = 130;
-		public static const maxheads:int = 19; //GET THIS COUNT RIGHT, INDEXING EYES DEPEND ON IT
+		public static const maxheads:int = 25; //GET THIS COUNT RIGHT, INDEXING EYES DEPEND ON IT
 		
 		//eyes
 		[Embed(source = "../assets/eyes_default.png")] public static const EYES_DEFAULT:Class;
@@ -75,6 +75,12 @@
 		[Embed(source = "../assets/eyes_shinobu.png")] public static const EYES_SHINOBU:Class;
 		[Embed(source = "../assets/eyes_grandma.png")] public static const EYES_GRANDMA:Class;
 		[Embed(source = "../assets/eyes_grandma_off.png")] public static const EYES_GRANDMA_OFF:Class;
+		[Embed(source = "../assets/eyes_raibuhonk.png")] public static const EYES_RAIBU_HONK:Class;
+		[Embed(source = "../assets/eyes_raibunontan.png")] public static const EYES_RAIBU_NONTAN:Class;
+		[Embed(source = "../assets/eyes_raibumake.png")] public static const EYES_RAIBU_MAKE:Class;
+		[Embed(source = "../assets/eyes_raibuburd.png")] public static const EYES_RAIBU_BURD:Class;
+		[Embed(source = "../assets/eyes_raiburin.png")] public static const EYES_RAIBU_RIN:Class;
+		[Embed(source = "../assets/eyes_kiki.png")] public static const EYES_KIKI:Class;
 		
 		//hairs
 		[Embed(source = "../assets/hair_default_BLUE_BACK.png")] public static const HAIR_DEFAULT_BLUE_BACK:Class;
@@ -111,6 +117,18 @@
 		[Embed(source = "../assets/hair_shinobu_BACK.png")] public static const HAIR_SHINOBU_BACK:Class;
 		[Embed(source = "../assets/hair_shinobu_FRONT.png")] public static const HAIR_SHINOBU_FRONT:Class;
 		[Embed(source = "../assets/hair_grandma.png")] public static const HAIR_GRANDMA:Class;
+		[Embed(source = "../assets/hair_raibuhonk_BACK.png")] public static const HAIR_RAIBU_HONK_BACK:Class;
+		[Embed(source = "../assets/hair_raibuhonk_FRONT.png")] public static const HAIR_RAIBU_HONK_FRONT:Class;
+		[Embed(source = "../assets/hair_raibunontan_BACK.png")] public static const HAIR_RAIBU_NONTAN_BACK:Class;
+		[Embed(source = "../assets/hair_raibunontan_FRONT.png")] public static const HAIR_RAIBU_NONTAN_FRONT:Class;
+		[Embed(source = "../assets/hair_raibumake_BACK.png")] public static const HAIR_RAIBU_MAKE_BACK:Class;
+		[Embed(source = "../assets/hair_raibumake_FRONT.png")] public static const HAIR_RAIBU_MAKE_FRONT:Class;
+		[Embed(source = "../assets/hair_raibuburd_BACK.png")] public static const HAIR_RAIBU_BURD_BACK:Class;
+		[Embed(source = "../assets/hair_raibuburd_FRONT.png")] public static const HAIR_RAIBU_BURD_FRONT:Class;
+		[Embed(source = "../assets/hair_raiburin_BACK.png")] public static const HAIR_RAIBU_RIN_BACK:Class;
+		[Embed(source = "../assets/hair_raiburin_FRONT.png")] public static const HAIR_RAIBU_RIN_FRONT:Class;
+		[Embed(source = "../assets/hair_kiki_BACK.png")] public static const HAIR_KIKI_BACK:Class;
+		[Embed(source = "../assets/hair_kiki_FRONT.png")] public static const HAIR_KIKI_FRONT:Class;
 		
 		//body
 		[Embed(source = "../assets/charbase.png")] public static const CHARBASE:Class;
@@ -127,8 +145,11 @@
 		[Embed(source = "../assets/shimakaze.png")] public static const SHIMAKAZE:Class;
 		[Embed(source = "../assets/tanktop.png")] public static const TANKTOP:Class;
 		[Embed(source = "../assets/kimono.png")] public static const KIMONO:Class;
+		[Embed(source = "../assets/blacksister.png")] public static const BLACKSISTER:Class;
 		[Embed(source = "../assets/igg.png")] public static const IGG:Class;
 		[Embed(source = "../assets/tie.png")] public static const TIE:Class;
+		[Embed(source = "../assets/wonderfulrush.png")] public static const RAIBU_WONDERFULRUSH:Class;
+		[Embed(source = "../assets/kiki.png")] public static const KIKI:Class;
 				
 		
 		//Return an array of graphics in the form of MenuObjects.
@@ -155,6 +176,12 @@
 			returnarray.push(new MenuObject(headString, "Vampiric Yellow", HAIR_SHINOBU_FRONT, HAIR_SHINOBU_BACK, 225000, false, 16));
 			returnarray.push(new MenuObject(headString, "Trouble Brown", HAIR_TROUBLE_BROWN_FRONT, HAIR_TROUBLE_BROWN_BACK, 320000, false, 17));
 			returnarray.push(new MenuObject(headString, "Cookie... Petter?", HAIR_GRANDMA, HITBOX, 640000, false, 18));
+			returnarray.push(new MenuObject(headString, "Sidetail Orange", HAIR_RAIBU_HONK_FRONT, HAIR_RAIBU_HONK_BACK, 900000, false, 19));
+			returnarray.push(new MenuObject(headString, "Scrunchie Twintail", HAIR_RAIBU_NONTAN_FRONT, HAIR_RAIBU_NONTAN_BACK, 900000, false, 20));
+			returnarray.push(new MenuObject(headString, "Short Red", HAIR_RAIBU_MAKE_FRONT, HAIR_RAIBU_MAKE_BACK, 900000, false, 21));
+			returnarray.push(new MenuObject(headString, "Long Tail Brown", HAIR_RAIBU_BURD_FRONT, HAIR_RAIBU_BURD_BACK, 900000, false, 22));
+			returnarray.push(new MenuObject(headString, "Boyish V2 Orange", HAIR_RAIBU_RIN_FRONT, HAIR_RAIBU_RIN_BACK, 900000, false, 23));
+			returnarray.push(new MenuObject(headString, "Twintails V2", HAIR_KIKI_FRONT, HAIR_KIKI_BACK, 1200000, false, 24));
 			
 			return returnarray;
 		}
@@ -173,7 +200,13 @@
 			returnarray.push(new MenuObject(eyesString, "Supernatural", EYES_SHINOBU, null, 180000, false, 8));
 			returnarray.push(new MenuObject(eyesString, "Idling Glasses", EYES_GRANDMA, null, 326000, false, 9));
 			returnarray.push(new MenuObject(eyesString, "Idling", EYES_GRANDMA_OFF, null, 330000, false, 10));
-			returnarray.push(new MenuObject(eyesString, "???", EYES_AHEGAO, null, 9999999, false, 11));
+			returnarray.push(new MenuObject(eyesString, ":D", EYES_RAIBU_HONK, null, 900000, false, 11));
+			returnarray.push(new MenuObject(eyesString, ":)", EYES_RAIBU_NONTAN, null, 900000, false, 12));
+			returnarray.push(new MenuObject(eyesString, ":/", EYES_RAIBU_MAKE, null, 900000, false, 13));
+			returnarray.push(new MenuObject(eyesString, ":o", EYES_RAIBU_BURD, null, 900000, false, 14));
+			returnarray.push(new MenuObject(eyesString, ";3", EYES_RAIBU_RIN, null, 900000, false, 15));
+			returnarray.push(new MenuObject(eyesString, ">;3", EYES_KIKI, null, 1400000, false, 16));
+			returnarray.push(new MenuObject(eyesString, "???", EYES_AHEGAO, null, 9999999, false, 17));
 			
 			return returnarray;
 		}
@@ -195,8 +228,11 @@
 			returnarray.push(new MenuObject(bodyString, "Tank Top", TANKTOP, null, 640000, false, 10));
 			returnarray.push(new MenuObject(bodyString, "Traditional", KIMONO, null, 1800000, false, 11));
 			returnarray.push(new MenuObject(bodyString, "Logo Shirt", IGG, null, 3200000, false, 12));
-			returnarray.push(new MenuObject(bodyString, "Not-Quite-None", TIE, null, 9999999, false, 13));
-			returnarray.push(new MenuObject(bodyString, "None", CHARBASE, null, 99999999, false, 14));
+			returnarray.push(new MenuObject(bodyString, "Black Sister", BLACKSISTER, null, 5200000, false, 13));
+			returnarray.push(new MenuObject(bodyString, "Cool Idol", RAIBU_WONDERFULRUSH, null, 9000000, false, 14));
+			returnarray.push(new MenuObject(bodyString, "Kitty", KIKI, null, 11000000, false, 15));
+			returnarray.push(new MenuObject(bodyString, "Not-Quite-None", TIE, null, 9999999, false, 16));
+			returnarray.push(new MenuObject(bodyString, "None", CHARBASE, null, 99999999, false, 17));
 			
 			return returnarray;
 		}
